@@ -7,13 +7,14 @@
 
 .ItemCard {
   text-align: center;
-  border: 1px solid white;
+  border: 1px solid #eeeeee;
   margin-bottom: 30px;
   margin-right: 10px;
 }
 
 button {
   margin-bottom: 10px;
+  background-color: #eeeeee;
 }
 
 @media (max-width: 768px) {
