@@ -9,7 +9,7 @@ import darkArrow from "./assets/darkArrow.jpg";
 import darkTunic from "./assets/darkTunic.jpg";
 import darkKey from "./assets/darkKey.jpg";
 import cat from "./assets/cat.jpg";
-import octopus from "./assets/octopus.jpg"
+import octopus from "./assets/octopus.jpg";
 import sun from "./assets/sun.jpg";
 import moon from "./assets/moon.jpg";
 
@@ -27,7 +27,7 @@ const products = [
     defense: "",
     fortune: "",
     price: "100",
-    stock: "1",
+    stock: "2",
   },
   {
     img: lighStaff,
@@ -42,7 +42,7 @@ const products = [
     defense: "",
     fortune: "",
     price: "110",
-    stock: "1",
+    stock: "4",
   },
   {
     img: lightArrow,
@@ -57,7 +57,7 @@ const products = [
     defense: "",
     fortune: "",
     price: "90",
-    stock: "1",
+    stock: "4",
   },
   {
     img: lightArmor,
@@ -72,7 +72,7 @@ const products = [
     defense: "30 DEF",
     fortune: "",
     price: "120",
-    stock: "1",
+    stock: "6",
   },
   {
     img: darkSword,
@@ -197,6 +197,7 @@ const products = [
 ];
 
 export const getProducts = (getProducts) => {
+
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(products);
@@ -205,9 +206,44 @@ export const getProducts = (getProducts) => {
 };
 
 export const getProductsById = (productId) => {
+
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(products.find((prod) => prod.id === productId));
     }, 500);
   });
 };
+
+export function getProductsData(idURL) {
+  
+  return new Promise((resolve, reject) => {
+    const productRequested = products.find(
+      (item) => item.id === parseInt(idURL)
+    );
+    setTimeout(() => {
+      resolve(productRequested);
+    }, 2000);
+  });
+}
+
+export const getProductsByCategoty = (productCategory) => {
+  
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(products.find((prod) => prod.category === productCategory));
+    }, 500);
+  });
+};
+
+export function getCategoryData(categoryURL) {
+  
+  return new Promise((resolve, reject) => {
+    const categoryRequested = products.find(
+      (item) => item.category === parseInt(categoryURL)
+    );
+    setTimeout(() => {
+      resolve(categoryRequested);
+    }, 2000);
+  });
+}
+

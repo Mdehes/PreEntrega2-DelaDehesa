@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { getProducts } from "../../asyncMock";
+import { getProducts, getCategoryData, getProductsByCategoty } from "../../asyncMock";
 import ItemList from "../ItemList/ItemList";
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = ({ greeting, category }) => {
   const [products, setProducts] = useState([]);
-
+  // Completar la funcionalidad de las categorias
   useEffect(() => {
     getProducts()
       .then((response) => {
@@ -12,13 +12,14 @@ const ItemListContainer = ({ greeting }) => {
       })
       .catch((error) => {
         console.error(error);
-      })
-  },[])
-  return(
+      });
+  }, []);
+  return (
     <div>
       <h1>{greeting}</h1>
-      <ItemList products={products}/>
+      <ItemList products={products} />
     </div>
-  )
+  );
 };
 export default ItemListContainer;
+

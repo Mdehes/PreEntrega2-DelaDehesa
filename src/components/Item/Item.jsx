@@ -1,4 +1,4 @@
-import ItemCount from "../ItemCount/ItemCount";
+import { Link } from "react-router-dom";
 import "./Item.css";
 function Item(props) {
   const { id, img, name, typeImg} = props;
@@ -13,7 +13,9 @@ function Item(props) {
           <img src={typeImg} alt="" width="22px" />
         </header>
         <footer>
+        <Link to={`/item/${id}`}>
         <button>Details</button>
+        </Link>
         </footer>
       </article>
     </div>
